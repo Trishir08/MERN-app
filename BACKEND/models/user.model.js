@@ -14,7 +14,11 @@ const userSchema = new mongoose.Schema({
     password : {
         type : String , 
         required : true , 
-    } 
+    } ,
+    avatar : {
+        type : String , 
+        default : "https://qph.cf2.quoracdn.net/main-qimg-f6bcacabffd09f4e7b5dfdd97f8db6e0-lq" , 
+    }
 } , 
 {
     timestamps : true
