@@ -3,6 +3,8 @@ import express from "express"
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import authRouter from "./routes/user.auth.js"
+import cookieParser from "cookie-parser"
+
 dotenv.config() ;
 
 const app = express() ;  
@@ -19,6 +21,7 @@ app.get("/" , (req , res) => {
 
 const port = process.env.PORT || 3000 ; 
 app.use(express.json()) ; 
+app.use(cookieParser()) ;
 app.use("/api/auth" , authRouter) ; 
 app.use((err , req , res , next) => {
     const statuscode = err.statuscode ||500 ;
